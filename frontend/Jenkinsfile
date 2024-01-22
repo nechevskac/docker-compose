@@ -12,8 +12,15 @@ pipeline {
                     sh 'npm install'
                 }
             }
+        }        
+        stage('Test') { 
+            steps {
+                dir('frontend') {
+                    sh 'npm test'
+                }
+            }
         }
-        stage('Completee') {
+        stage('Complete') {
             steps {
                 echo 'Job Complite!'
            }
