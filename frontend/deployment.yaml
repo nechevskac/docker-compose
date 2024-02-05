@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 1 #tells deployment to run 1 pod matching the template
+  selector:
+    matchLabels:
+      app: frontend-app
+  template: #pods that needs to be created
+    metadata:
+      labels:
+        app: frontend-app
+    spec: #pod configuration
+      containers:
+        - name: fe-node
+          image: cnechevska/homework #DockerImage from DockerHub https://hub.docker.com/repository/docker/cnechevska/homework

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  selector:
+    app: frontend-app #this name needs to match matchLabels/app name in the deployment file
+  ports:
+    - protocol: "TCP"
+      port: 3000 #port on which the FE is listening
+      targetPort: 3000
+  type: LoadBalancer #outside access
